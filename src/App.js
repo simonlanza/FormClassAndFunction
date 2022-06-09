@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react';
+import HomePageClass from '../src/Components/HomePageClass.js';
+import HomePage from '../src/Components/HomePage.js';
+
+
 
 function App() {
+    const [viewApp, setViewApp] = useState(<HomePageClass/>)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <button className='c-button' onClick={()=> setViewApp(<HomePageClass/>)} >Class Component</button>
+        <button className='f-button' onClick={()=> setViewApp(<HomePage/>)}>Function Component</button>
+        {
+            viewApp
+        }
     </div>
   );
 }
